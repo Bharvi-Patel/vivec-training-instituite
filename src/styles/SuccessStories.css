@@ -1,0 +1,75 @@
+.success {
+  background: #fff;
+}
+
+.success__header {
+  text-align: center;
+  padding: 64px 80px 40px;
+}
+
+.success__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.success__title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 900;
+  color: #111;
+  letter-spacing: 1px;
+}
+
+.success__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 220px);
+}
+
+/* Make first photo on top-left span 2 rows */
+.success__cell:first-child {
+  grid-row: span 2;
+  grid-column: span 1;
+}
+
+.success__cell {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.success__cell-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background 0.3s;
+}
+
+.success__cell:hover .success__cell-overlay {
+  background: rgba(46,125,50,0.35);
+}
+
+@media (max-width: 900px) {
+  .success__header { padding: 48px 32px 32px; }
+  .success__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+  }
+  .success__cell:first-child {
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .success__header { padding: 40px 20px 28px; }
+  .success__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 160px);
+  }
+}

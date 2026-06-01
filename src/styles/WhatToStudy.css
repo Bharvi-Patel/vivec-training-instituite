@@ -1,0 +1,150 @@
+.wts {
+  background: #fff;
+  padding: 70px 80px;
+}
+
+.wts__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wts__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.wts__title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 900;
+  color: #111;
+  letter-spacing: 0.5px;
+  margin-bottom: 44px;
+}
+
+.wts__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.wts__card {
+  position: relative;
+  height: 260px;
+  border-radius: var(--radius-md);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.wts__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+  transition: background 0.3s;
+}
+
+.wts__card:hover .wts__card-overlay {
+  background: linear-gradient(to top, rgba(46,125,50,0.9) 0%, rgba(46,125,50,0.5) 60%, rgba(46,125,50,0.1) 100%);
+}
+
+.wts__card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14px;
+}
+
+.wts__card-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+  text-align: left;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.wts__card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--green-primary);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+}
+
+.wts__card-duration {
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.wts__card-btn {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+.wts__card-btn:hover {
+  background: rgba(255,255,255,0.45);
+}
+
+@media (max-width: 900px) {
+  .wts { padding: 48px 32px; }
+  .wts__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .wts { padding: 40px 20px; }
+  .wts__grid { grid-template-columns: 1fr; }
+}
+
+/* Fix + alignment */
+.wts__card-btn {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  padding-bottom: 1px;
+  transition: background 0.2s;
+}
+
+.wts__card-btn svg,
+.hts__image-card-btn svg {
+  display: block;
+  flex-shrink: 0;
+}

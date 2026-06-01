@@ -2,11 +2,11 @@ import { useState } from "react";
 import "../styles/Navbar.css";
 
 const NAV_LINKS = [
-  { label: "Home",      href: "#home" },
-  { label: "About",     href: "#about" },
-  { label: "Courses",   href: "#courses" },
-  { label: "Admission", href: "#admission" },
-  { label: "Contact",   href: "#contact" },
+  { label: "Home",      href: "home" },
+  { label: "About",     href: "about" },
+  { label: "Courses",   href: "courses" },
+  { label: "Admission", href: "admission" },
+  { label: "Contact Us",   href: "contact" },
 ];
 
 export default function Navbar() {
