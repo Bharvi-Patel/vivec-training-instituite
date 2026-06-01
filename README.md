@@ -1,1 +1,105 @@
-# vivec-training-instituite
+Vivec Training Institute — Website
+Official website for VIVEC (Vivekanand Institute of Vocational and Entrepreneurial Competence), Gujarat's largest skill training institute. Built with React 18 + Vite 5.
+
+Tech Stack
+LayerTechnologyUI LibraryReact 18Build ToolVite 5 StylingPlain CSS (per-component stylesheets)FontsOutfit, Plus Jakarta Sans (Google Fonts)IconsInline SVG
+
+Prerequisites
+
+Node.js v18 or higher
+npm (bundled with Node.js)
+
+Verify your versions:
+bashnode -v
+npm -v
+
+Getting Started
+1. Clone the repository
+bashgit clone https://github.com/Bharvi-Patel/vivec-training-instituite.git
+cd vivec-training-instituite
+2. Install dependencies
+bashnpm install
+ add your own values
+VITE_API_URL=https://your-api.example.com
+
+Variables exposed to the browser must be prefixed with VITE_. See Vite env docs for details.
+
+4. Add assets
+Place all images and SVG files in src/assets/. The components expect the following files to exist:
+Images (JPEG/PNG)
+FileUsed inclassroom.jpgHero — About striphowToStudy01.jpegHowToStudy, SuccessStorieshowToStudy02.jpegHowToStudyhowToStudy03.jpegHowToStudywantToStudy01.jpegWhatToStudy, SuccessStorieswantToStudy02.jpegWhatToStudy, SuccessStorieswantToStudy03.jpegWhatToStudy, SuccessStorieswantToStudy04.jpegWhatToStudy, SuccessStoriesimages7.jpegSuccessStoriesss.jpegSuccessStoriesimage1.png — image4.pngFooter Instagram grid
+SVG Icons
+FileUsed inapplyOnlineIcon.svgHero — Apply Online carddownload.svgHero — Downloads cardcertificate.svgHero — Certification card
+5. Start the development server
+bashnpm run dev
+The app will be available at http://localhost:5173 by default.
+
+Available Scripts
+CommandDescriptionnpm run devStart development server with hot-reloadnpm run buildBuild for production (output → dist/)npm run previewPreview the production build locally
+
+Project Structure
+vivec-training-instituite/
+├── public/                  # Static assets served as-is
+├── src/
+│   ├── assets/              # Images and SVG icons (gitignored originals — add manually)
+│   ├── components/          # React components
+│   │   ├── Navbar.jsx       # Sticky navbar + announcement bar + mobile drawer
+│   │   ├── Hero.jsx         # Hero banner, feature cards, about strip
+│   │   ├── WhatToStudy.jsx  # Course cards grid
+│   │   ├── HowToStudy.jsx   # Study options + 6 feature highlights
+│   │   ├── WhyChooseUs.jsx  # Stats section (green gradient background)
+│   │   ├── WorkingWith.jsx  # Scrollable alumni/partner logos
+│   │   ├── SuccessStories.jsx  # Photo grid
+│   │   ├── Testimonials.jsx    # Testimonial slider
+│   │   └── Footer.jsx       # Multi-column footer + social + subscribe + Instagram
+│   ├── styles/              # Per-component CSS files
+│   │   ├── Globals.css      # CSS variables, resets, typography
+│   │   ├── Navbar.css
+│   │   ├── Hero.css
+│   │   ├── WhatToStudy.css
+│   │   ├── HowToStudy.css
+│   │   ├── WhyChooseUs.css
+│   │   ├── WorkingWith.css
+│   │   ├── SuccessStories.css
+│   │   ├── Testimonials.css
+│   │   └── Footer.css
+│   ├── App.jsx              # Root component — assembles all sections
+│   └── main.jsx             # Entry point
+├── index.html               # HTML shell
+├── vite.config.js           # Vite configuration
+├── package.json
+└── .gitignore
+
+Component Overview
+ComponentDescriptionNavbarSticky top bar with announcement strip, logo, nav links, "Apply Now" CTA, and a hamburger drawer for mobileHeroFull-bleed hero banner with overlay text, 3 feature cards (Apply / Downloads / Certification), and an about stripWhatToStudy4 course cards with background images and program namesHowToStudy3 image CTA cards (Apply / Visit / Contact) + 6 feature highlights (flexible study, placement, etc.)WhyChooseUsStats section — 8,700+ trained, 294+ placed, 14+ courses, 65% literacy Working With Horizontally scrollable row of alumni employer logos (L&T, Tata, Infosys, etc.)Success Stories7-photo mosaic grid of campus lifeTestimonialsLeft/right arrow slider with 3 student testimonials and dot navigation Footer4-column link grid, VIVEC logo, dark bottom bar with social icons, email subscribe input, and 4-image Instagram grid
+
+Design Tokens
+All design tokens are defined in src/styles/Globals.css as CSS custom properties and are available across every component stylesheet:
+css/* Brand colors */
+--green-primary: #2e7d32
+--orange-primary: #ff6f00
+
+/* Typography */
+--font-display: 'Outfit', sans-serif
+--font-body:    'Plus Jakarta Sans', sans-serif
+
+/* Spacing / layout */
+--nav-height: 70px
+
+/* Border radius */
+--radius-sm / --radius-md / --radius-lg / --radius-pill
+
+Building for Production
+bashnpm run build
+Output is placed in dist/. To preview it locally before deploying:
+bashnpm run preview
+The dist/ folder can be deployed to any static host — Netlify, Vercel, GitHub Pages, or a plain web server.
+
+Ignored Files
+The following are excluded from version control (.gitignore):
+node_modules/   # Install via npm install
+dist/           # Generated by npm run build
+
+
+License
+© 2026 VIVEC — Vivekanand Institute of Vocational and Entrepreneurial Competence. All rights reserved.
