@@ -1,7 +1,7 @@
 .why {
   background:
-  linear-gradient(rgba(46,125,50,0.82), rgba(27,94,32,0.88)),
-  url("https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1400&q=80") center/cover no-repeat;
+    linear-gradient(rgba(46,125,50,0.82), rgba(27,94,32,0.88)),
+    url("https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1400&q=80") center/cover no-repeat;
   padding: 64px 80px;
 }
 
@@ -57,7 +57,8 @@
 
 .why__stat-value {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, 54px);
+  /* Tighter clamp — was too large on mobile */
+  font-size: clamp(28px, 6vw, 54px);
   font-weight: 900;
   color: #fff;
   line-height: 1;
@@ -71,11 +72,40 @@
   color: rgba(255,255,255,0.7);
 }
 
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .why {
+    padding: 52px 48px;
+  }
+}
+
 @media (max-width: 768px) {
-  .why { padding: 48px 32px; }
-  .why__stats { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+  .why {
+    padding: 48px 32px;
+  }
+
+  .why__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 24px;
+  }
+
+  .why__title {
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 480px) {
-  .why { padding: 40px 20px; }
+  .why {
+    padding: 40px 20px;
+  }
+
+  .why__stat-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .why__stat-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
 }

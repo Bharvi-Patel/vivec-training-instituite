@@ -5,7 +5,6 @@
   position: relative;
   min-height: 520px;
   background:
-    
     url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80') right center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -23,6 +22,8 @@
   position: relative;
   z-index: 1;
   max-width: 520px;
+  /* Prevent content from overflowing on narrow screens */
+  width: 100%;
 }
 
 .hero__subtitle {
@@ -37,7 +38,7 @@
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 5vw, 48px);
+  font-size: clamp(24px, 5vw, 48px);
   font-weight: 900;
   color: #fff;
   line-height: 1.1;
@@ -93,6 +94,7 @@
 .hero__dot.active {
   background: #fff;
 }
+
 /* ══════════════════════════════
    FEATURE CARDS
 ══════════════════════════════ */
@@ -125,13 +127,17 @@
   padding: 12px;
 }
 
-.feature-card__icon svg {
+.feature-card__icon svg,
+.feature-card__icon img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .feature-card__body {
   flex: 1;
+  /* Prevent text overflow on narrow cards */
+  min-width: 0;
 }
 
 .feature-card__body h3 {
@@ -170,16 +176,20 @@
 .feature-card__arrow:hover {
   background: rgba(255,255,255,0.35);
 }
+
 /* ══════════════════════════════
    ABOUT STRIP
 ══════════════════════════════ */
 .about-strip {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
   padding: 60px 80px;
   align-items: center;
   gap: 52px;
+}
+
+.about-strip__image {
+  width: 100%;
 }
 
 .about-strip__img-placeholder {
@@ -187,16 +197,26 @@
   aspect-ratio: 4/3;
   background: #ddd;
   border-radius: var(--radius-md);
+  /* Fix: use flex so the img fills the container correctly */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 14px;
+  align-items: stretch;
   overflow: hidden;
 }
 
-/* When you have the real image, replace the placeholder with: */
-/* .about-strip__image img { width:100%; border-radius: var(--radius-md); } */
+/* Fix: the span wrapper causes a gap; make it a block */
+.about-strip__img-placeholder span {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.about-strip__img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  display: block;
+}
 
 .about-strip__label {
   font-size: 11px;
@@ -209,7 +229,7 @@
 
 .about-strip__title {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: clamp(24px, 3.5vw, 32px);
   font-weight: 900;
   color: #111;
   margin-bottom: 16px;
@@ -240,12 +260,24 @@
   color: var(--orange-primary);
   border-color: var(--orange-primary);
 }
+
 /* ══════════════════════════════
    RESPONSIVE
 ══════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 48px 48px;
+  }
+
+  .hero__dots {
+    right: 48px;
+  }
+}
+
 @media (max-width: 900px) {
   .hero {
     padding: 48px 32px;
+    min-height: 440px;
   }
 
   .hero__dots {
@@ -265,6 +297,8 @@
 
   .about-strip {
     grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 28px;
   }
 
   .about-strip__img-placeholder {
@@ -276,9 +310,49 @@
   .hero {
     padding: 40px 20px;
     min-height: 380px;
+    /* On small phones, overlay needs to cover more so text is always readable */
+    background-position: 70% center;
+  }
+
+  .hero__overlay {
+    background: linear-gradient(90deg, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.55) 100%);
+  }
+
+  .hero__subtitle {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero__desc {
+    font-size: 13px;
+    /* Hide line breaks forced by <br> on tiny screens */
+    word-break: break-word;
+  }
+
+  .hero__dots {
+    right: 20px;
+    bottom: 16px;
+  }
+
+  .hero__dot {
+    width: 20px;
+  }
+
+  .feature-card {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+
+  .feature-card__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .feature-card__body h3 {
+    font-size: 13px;
   }
 
   .about-strip {
-    padding: 32px 20px;
+    padding: 32px 16px;
   }
 }

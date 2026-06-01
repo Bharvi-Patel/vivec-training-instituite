@@ -85,19 +85,27 @@
   background: rgba(255,255,255,0.2);
   border: 1.5px solid rgba(255,255,255,0.5);
   color: #fff;
-  font-size: 16px;
-  width: 32px;
-  height: 32px;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 0;
+  padding-left: 1px;
+  line-height: 1;
   transition: background 0.2s;
 }
 
 .hts__image-card-btn:hover {
   background: rgba(255,255,255,0.35);
+}
+
+.hts__image-card-btn svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 /* ── 6 Feature Items ── */
@@ -145,37 +153,63 @@
   line-height: 1.7;
 }
 
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hts {
+    padding: 56px 48px;
+  }
+
+  .hts__features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 36px;
+  }
+}
+
 @media (max-width: 900px) {
-  .hts { padding: 48px 32px; }
-  .hts__image-grid { grid-template-columns: 1fr; }
-  .hts__features { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .hts {
+    padding: 48px 32px;
+  }
+
+  .hts__image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hts__image-card {
+    height: 200px;
+  }
+
+  .hts__features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
 }
 
 @media (max-width: 600px) {
-  .hts { padding: 40px 20px; }
-  .hts__features { grid-template-columns: 1fr; }
+  .hts {
+    padding: 40px 20px;
+  }
+
+  .hts__image-grid {
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .hts__features {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
-/* Fix arrow alignment */
-.hts__image-card-btn {
-  background: rgba(255,255,255,0.2);
-  border: 1.5px solid rgba(255,255,255,0.5);
-  color: #fff;
-  font-size: 18px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0;
-  padding-left: 1px;
-  line-height: 1;
-  transition: background 0.2s;
-}
+@media (max-width: 480px) {
+  .hts__image-card {
+    height: 180px;
+  }
 
-.hts__image-card-btn svg {
-  display: block;
-  flex-shrink: 0;
+  .hts__image-card-content {
+    padding: 14px;
+  }
+
+  .hts__image-card-content h3 {
+    font-size: 14px;
+  }
 }

@@ -40,14 +40,15 @@
   border-radius: 50%;
   border: 1.5px solid #ccc;
   background: #fff;
-  font-size: 22px;
   color: #555;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
-  line-height: 1;
+  /* Ensure tap target is large enough */
+  min-width: 38px;
+  min-height: 38px;
 }
 
 .testi__arrow:hover {
@@ -65,6 +66,8 @@
   position: relative;
   box-shadow: var(--shadow-sm);
   min-height: 200px;
+  /* Prevent card shrinking below readable size */
+  min-width: 0;
 }
 
 .testi__quote {
@@ -120,18 +123,70 @@
   cursor: pointer;
   transition: background 0.2s;
   padding: 0;
+  /* Larger tap target on mobile */
+  position: relative;
+}
+
+.testi__dot::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
 }
 
 .testi__dot.active {
   background: var(--green-primary);
 }
 
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .testi {
+    padding: 56px 48px;
+  }
+}
+
 @media (max-width: 768px) {
-  .testi { padding: 48px 32px; }
-  .testi__card { padding: 24px; }
+  .testi {
+    padding: 48px 32px;
+  }
+
+  .testi__card {
+    padding: 24px;
+  }
+
+  .testi__title {
+    margin-bottom: 32px;
+  }
 }
 
 @media (max-width: 480px) {
-  .testi { padding: 40px 20px; }
-  .testi__arrow { display: none; }
+  .testi {
+    padding: 40px 20px;
+  }
+
+  /* Keep arrows visible but make them smaller; they're useful for non-swipe users */
+  .testi__arrow {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .testi__slider {
+    gap: 10px;
+  }
+
+  .testi__card {
+    padding: 20px 16px;
+    min-height: unset;
+  }
+
+  .testi__text {
+    font-size: 13px;
+  }
+
+  .testi__quote {
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+  }
 }

@@ -161,6 +161,11 @@
   padding: 6px;
   border-radius: var(--radius-sm);
   transition: background 0.2s;
+  /* Ensure tap target is large enough on mobile */
+  min-width: 40px;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar__hamburger:hover {
@@ -190,7 +195,8 @@
 .navbar__mobile-menu {
   display: none;
   position: fixed;
-  top: calc(var(--nav-height) + 30px); /* announcement bar ~30px */
+  /* account for announcement bar (~30px) + navbar (70px) */
+  top: calc(var(--nav-height) + 30px);
   left: 0;
   right: 0;
   background: var(--white);
@@ -199,6 +205,9 @@
   padding: 16px 24px 24px;
   z-index: 999;
   animation: slideDown 0.25s ease;
+  /* Allow scrolling if many links */
+  max-height: calc(100vh - var(--nav-height) - 30px);
+  overflow-y: auto;
 }
 
 .navbar__mobile-menu.open {
@@ -265,5 +274,23 @@
 
   .announcement-bar {
     font-size: 11px;
+    /* Allow wrapping on very small screens */
+    white-space: normal;
+    line-height: 1.5;
+    padding: 6px 12px;
+  }
+
+  /* Shrink logo text slightly on small phones */
+  .navbar__logo-name {
+    font-size: 26px;
+  }
+
+  .navbar__logo-sun {
+    width: 28px;
+    height: 28px;
+  }
+
+  .navbar__logo-fullform {
+    font-size: 8.5px;
   }
 }

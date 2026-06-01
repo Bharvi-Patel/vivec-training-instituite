@@ -50,6 +50,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent horizontal overflow on mobile */
+  overflow-x: hidden;
 }
 
 body {
@@ -58,6 +60,8 @@ body {
   color: #1a1a1a;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  /* Ensure touch scrolling feels native on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 a {
@@ -75,4 +79,6 @@ button {
 img {
   display: block;
   max-width: 100%;
+  /* Fix the inline span gap bug — images inside inline containers get a gap */
+  height: auto;
 }
