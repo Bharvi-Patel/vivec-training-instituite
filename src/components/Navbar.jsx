@@ -17,7 +17,7 @@ export default function Navbar() {
     <>
       {/* ── Announcement Bar ── */}
       <div className="announcement-bar">
-        🎉 Admissions Open for 2024–25 Batch! Apply before 30th June &nbsp;|&nbsp;
+         Admissions Open for 2025-2026 Batch! Apply before 30th June &nbsp;|&nbsp;
         <span>Register Now →</span>
       </div>
 
@@ -29,24 +29,35 @@ export default function Navbar() {
           <a href="#home" className="navbar__logo">
             <div className="navbar__logo-wordmark">
               <span className="navbar__logo-name">VIVEC</span>
-              {/* Sun/gear icon in orange, SVG inline */}
-              <svg className="navbar__logo-sun" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="10" fill="#e65100"/>
-                {[0,30,60,90,120,150,180,210,240,270,300,330].map((deg, i) => (
-                  <rect
-                    key={i}
-                    x="22" y="4" width="4" height="8" rx="2"
-                    fill="#ff6f00"
-                    transform={`rotate(${deg} 24 24)`}
+              {/* Floral/mandala icon matching VIVEC logo */}
+              <svg className="navbar__logo-sun" viewBox="0 0 60 60" xmlns="https://www.bing.com/images/search?view=detailV2&ccid=0Y%2f2xWik&id=93795DC89B6CDD3C6FD13573314E43FC41BAC1ED&thid=OIP.0Y_2xWikCxbA1FQAvkd0rQHaHa&mediaurl=https%3a%2f%2fseeklogo.com%2fimages%2fG%2fgeometric-shape-logo-9EAB9607F0-seeklogo.com.png&exph=600&expw=600&q=orange+star+gear+logo+SVG%22+&mode=overlay&FORM=VSMAINC&ck=0690A07BF71FFF25440FEAF59707A664&idpp=serp">
+                {/* Outer petals */}
+                {[0,45,90,135,180,225,270,315].map((deg, i) => (
+                  <ellipse key={i} cx="30" cy="13" rx="5" ry="9"
+                    fill={i % 2 === 0 ? "#e65100" : "#ff8f00"}
+                    transform={`rotate(${deg} 30 30)`} opacity="0.9"
                   />
                 ))}
-                <circle cx="24" cy="24" r="6" fill="#fff"/>
-                <text x="24" y="27.5" textAnchor="middle" fontSize="6" fontWeight="700" fill="#e65100">in foci</text>
+                {/* Inner petals */}
+                {[22,67,112,157,202,247,292,337].map((deg, i) => (
+                  <ellipse key={i} cx="30" cy="18" rx="3.5" ry="6"
+                    fill={i % 2 === 0 ? "#ff8f00" : "#ffb300"}
+                    transform={`rotate(${deg} 30 30)`} opacity="0.85"
+                  />
+                ))}
+                {/* Center circle */}
+                <circle cx="30" cy="30" r="8" fill="#e65100"/>
+                <circle cx="30" cy="30" r="5" fill="#fff"/>
+                <circle cx="30" cy="30" r="2.5" fill="#e65100"/>
               </svg>
             </div>
-            <span className="navbar__logo-fullform">
-              Vivekanand Institute of Vocational<br />and Entrepreneurial Competence
-            </span>
+            <div className="navbar__logo-fullform-wrap">
+              <span className="navbar__logo-line" />
+              <span className="navbar__logo-fullform">
+                Vivekanand Institute of Vocational<br />and Entrepreneurial Competence
+              </span>
+              <span className="navbar__logo-line" />
+            </div>
           </a>
 
           {/* Desktop Links */}
